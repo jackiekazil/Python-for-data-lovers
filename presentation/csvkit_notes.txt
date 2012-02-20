@@ -1,0 +1,53 @@
+$ pip install csvkit
+
+CSV kit docs:
+http://csvkit.readthedocs.org/
+
+"csvkit is comprised of a number of individual command line utilities that be loosely divided into a few major categories: Input, Processing, and Output"
+
+Grab the first 5 lines to take a peek.
+Using Unix text-processing utility head :
+$ head -n 5 data/pass_2011_CSV.csv
+PO_NUMBER,AGENCY_NAME,NIGP_DESCRIPTION,PO_TOTAL_AMOUNT,ORDER_DATE,SUPPLIER,SUPPLIER_FULL_ADDRESS,SUPPLIER_CITY,SUPPLIER_STATE
+PO352134,DISTRICT DEPARTMENT OF THE ENVIRONMENT,PROFESSIONAL SERVICES (NOT OTHERWISE CLASSIFIED) 58,$11280.00,01/03/2011,ROBERT MORRIS,413 5TH STREET NE  ; WASHINGTON  ; DC  ; 20002,WASHINGTON  ,DC
+PO352082,STATE SUPERINTENDENT OF EDUCATION (OSSE),"ROOM RENTAL FOR CONFERENCES, SEMINARS, ETC. 65",$3173.00,01/03/2011,FLIK INTERNATIONAL,800 FLORIDA AVENUE NE   ; WASHINGTON  ; DC  ; 20002-,WASHINGTON  ,DC
+PO352138,DISTRICT OF COLUMBIA PUBLIC SCHOOLS,"MICROCOMPUTERS, DESKTOP OR TOWERBASED 53",$4281.78,01/03/2011,DELL COMPUTER CORP.,ONE DELL WAY   ; ROUND ROCK  ; TX  ; 78682-,ROUND ROCK  ,TX
+PO352060,OFFICE OF CHIEF TECHNOLOGY OFFICER,"MICROCOMPUTERS, DESKTOP OR TOWERBASED 53",$36477.00,01/03/2011,DELL COMPUTER CORP.,ONE DELL WAY   ; ROUND ROCK  ; TX  ; 78682-,ROUND ROCK  ,TX
+
+Rinse & Repeat to make sure all the files don't appear to have issues.
+* Fast Forward *
+They don't. So, let's move on.
+
+Let's compare the head of each of the files to make sure they are the same using csvcut.
+csvcut:
+"Filter and truncate CSV files. Like unix "cut" command, but for tabular data."
+
+$ csvcut -n pass_2011_CSV.csv
+1: PO_NUMBER
+2: AGENCY_NAME
+3: NIGP_DESCRIPTION
+4: PO_TOTAL_AMOUNT
+5: ORDER_DATE
+6: SUPPLIER
+7: SUPPLIER_FULL_ADDRESS
+8: SUPPLIER_CITY
+9: SUPPLIER_STATE
+
+* Fast Foward *
+They are the same.
+Although, we are lucky in this case, you should never truth your data.
+Never. Ever. Trust your data.
+
+For the purpose of our social network analysis, since there are not millions of records,
+it is easier for the files to all be in one file.
+Let's use csvstack.
+
+csvstack:
+"Stack up the rows from multiple CSV files, optionally adding a grouping value."
+
+$ csvstack original/*.csv > pass_2004_to_2011.csv
+*NOTE* If one of your headers doesn't match, it will still combine the file without throwing an error.
+
+
+
+
