@@ -1,0 +1,25 @@
+Networkx can be a pain to install, because of requirements.
+'pip install networkx' does not work.
+
+It is best to visit pypi and choose the one that is right you.
+http://pypi.python.org/pypi/networkx
+
+Here is some more information on installing NetworkX
+http://networkx.lanl.gov/install.html
+
+$ pip install numpy
+# numpy must be installed before matplotlib is installed
+$ pip install matplotlib
+$ pip install http://pypi.python.org/packages/source/n/networkx/networkx-1.6.tar.gz#md5=a5e62b841b30118574b57d0eaf1917ca
+
+
+Resources:
+
+IN
+http://networkx.lanl.gov/networkx_tutorial.pdf
+http://mlg.ucd.ie/summer
+http://mlg.ucd.ie/files/summer/tutorial.pdf
+
+OUT
+http://www.stanford.edu/class/cs224w/nx_tutorial/nx_tutorial.pdf
+http://sociograph.blogspot.com/2011/07/tutorial-introduction-to-network.html

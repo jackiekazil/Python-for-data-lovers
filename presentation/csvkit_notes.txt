@@ -48,6 +48,5 @@ csvstack:
 $ csvstack original/*.csv > pass_2004_to_2011.csv
 *NOTE* If one of your headers doesn't match, it will still combine the file without throwing an error.
 
-
-
-
+Let's create a sample file to test against to cut down wait time.
+$ head -n 1000 original/pass_2011_CSV.csv > pass_2011_sample.csv
