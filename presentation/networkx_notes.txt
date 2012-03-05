@@ -13,6 +13,38 @@ $ pip install matplotlib
 $ pip install http://pypi.python.org/packages/source/n/networkx/networkx-1.6.tar.gz#md5=a5e62b841b30118574b57d0eaf1917ca
 
 
+When working with a larger dataset, it is best to create a sample set to test code against.
+When you are ready, run against a larger set.
+Why?
+Otherwise you will never finish.
+Even if you think a dataset is "small," it probably isn't.
+
+# TODO: Insert info on # of links & data points
+# How your small dataset becomes big very quickly.
+
+To mitigate keeping things in memory and rerunning processes, we write some mid-step output files
+Why?
+Otherwise you will never finish.
+
+First we create edgelist output that we will run analysis against:
+python create_edgelist.py ../../data/original/pass_2011_CSV.csv AGENCY_NAME SUPPLIER output/agency_supplier_2011.csv
+
+output file looks like this:
+PUBLIC SERVICE COMMISSION,DEPARTMENT OF MOTOR VEHICLES,2
+PUBLIC SERVICE COMMISSION,COUNCIL OF THE DISTRICT OF COLUMBIA,2
+DC PUBLIC LIBRARY,OFFICE ON AGING,2
+DC PUBLIC LIBRARY,"DEPART OF INSURANCE,SECURITIES & BANKING",2
+DC PUBLIC LIBRARY,DEPT. OF CONSUMER AND REGULATORY AFFAIRS,2
+DC PUBLIC LIBRARY,OFFICE OF CHIEF FINANCIAL OFFICER,2
+DC PUBLIC LIBRARY,DEPART OF YOUTH REHABILITATION SERVICES,4
+DC PUBLIC LIBRARY,OFFICE OF PEOPLE'S COUNSEL,2
+
+
+Now, we analyze the network before we visualize to get a feel for the landscape
+
+
+
+
 Resources:
 
 IN

@@ -3,19 +3,28 @@
 
 import csv
 import networkx as nx
-import os
 import sys
 
 def add_edge_or_weight(G, f, t):
-    """
+    '''
     This function adds a new edge value to the list or increases the weight
     of an existing value.
-    """
+    '''
     if G.has_edge(f,t):
         G[f][t]['weight']+=1
     else:
         G.add_edge(f,t,weight=1)
     return G
+
+def node_edge_exists(node_edgelist, n, e):
+    '''
+    This function adds a node combo to this list only once.
+    This is to prevent from multiple purchase rows from being counted
+    '''
+
+    if not (n,e) in node_edgelist:
+        node_edgelist.append((n,e))
+    return node_edgelist
 
 def create_edgelist(csv_file, node, edge, edge_file=None):
 
@@ -47,20 +56,22 @@ def create_edgelist(csv_file, node, edge, edge_file=None):
     # Open and load csv file
     csv_file = csv.DictReader(open(csv_file, "rb"))
 
+    # First we create list of unique nodes and edges
+    node_edgelist = []
+    for row in csv_file:
+        node_edge_exists(node_edgelist, row[node], row[edge])
+
     # Let's look for our edges
     # If the value we are using for edges is the same between two nodes,
     # we create an edge
-
-    node_edge_list = []
-    for row in csv_file:
-        node_edge_list.append((row[node],row[edge]))
 
     # f & t below stand for 'from' & 'to'
     # In this example, it is not that important, because the graph is undirected,
     # as opposed to directed.
     G = nx.Graph()
-    for f in node_edge_list:
-        for t in node_edge_list:
+
+    for f in node_edgelist:
+        for t in node_edgelist:
             if t != f:
                 if f[1] == t[1]:
                     add_edge_or_weight(G, f[0], t[0])

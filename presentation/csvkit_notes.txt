@@ -50,3 +50,172 @@ $ csvstack original/*.csv > pass_2004_to_2011.csv
 
 Let's create a sample file to test against to cut down wait time.
 $ head -n 1000 original/pass_2011_CSV.csv > pass_2011_sample.csv
+
+
+Used to help determined stats for agency & suppliers: csvstat
+$ csvcut -c 2,6 original/pass_2011_CSV.csv | csvstat
+
+######### All years ####
+  1. AGENCY_NAME
+	<type 'unicode'>
+	Nulls: False
+	Unique values: 115
+	5 most frequent values:
+		DISTRICT OF COLUMBIA PUBLIC SCHOOLS:	17361
+		OFFICE OF CHIEF TECHNOLOGY OFFICER:	8421
+		DEPARTMENT OF HEALTH:	8134
+		DEPARTMENT OF TRANSPORTATION:	6350
+		UNIVERSITY OF THE DISTRICT OF COLUMBIA:	5148
+	Max length: 40
+  2. SUPPLIER
+	<type 'unicode'>
+	Nulls: True
+	Unique values: 15384
+	5 most frequent values:
+		CAPITAL SERVICES AND SUPPLIES:	1721
+		MVS INC:	1649
+		AMERICAN EXPRESS COMPANY:	1571
+		MDM OFFICE SYSTEMS DBA:	1538
+		OST, INC.:	1457
+	Max length: 54
+Row count: 129440
+
+
+######### 2011 #########
+
+1. AGENCY_NAME
+	<type 'unicode'>
+	Nulls: False
+	Unique values: 85
+	5 most frequent values:
+		DISTRICT OF COLUMBIA PUBLIC SCHOOLS:	2410
+		STATE SUPERINTENDENT OF EDUCATION (OSSE):	1340
+		DEPARTMENT OF HEALTH:	895
+		OFFICE OF CHIEF TECHNOLOGY OFFICER:	786
+		OFF PUBLIC ED FACILITIES MODERNIZATION:	722
+	Max length: 40
+2. SUPPLIER
+	<type 'unicode'>
+	Nulls: False
+	Unique values: 4362
+	5 most frequent values:
+		OST, INC.:	841
+		DELL COMPUTER CORP.:	366
+		AMERICAN EXPRESS COMPANY:	282
+		MVS, INC.:	176
+		CAPITAL SERVICES AND SUPPLIES:	167
+	Max length: 52
+Row count: 16075
+
+######### 2010 #########
+
+  1. AGENCY_NAME
+	<type 'unicode'>
+	Nulls: False
+	Unique values: 89
+	5 most frequent values:
+		DISTRICT OF COLUMBIA PUBLIC SCHOOLS:	2487
+		STATE SUPERINTENDENT OF EDUCATION (OSSE):	1073
+		OFFICE OF CHIEF TECHNOLOGY OFFICER:	822
+		DEPARTMENT OF EMPLOYMENT SERVICES:	805
+		UNIVERSITY OF THE DISTRICT OF COLUMBIA:	731
+	Max length: 40
+  2. SUPPLIER
+	<type 'unicode'>
+	Nulls: False
+	Unique values: 4818
+	5 most frequent values:
+		OST, INC.:	616
+		DELL COMPUTER CORP.:	419
+		AMERICAN EXPRESS COMPANY:	376
+		MVS, INC.:	180
+		CAPITAL SERVICES AND SUPPLIES:	152
+	Max length: 54
+
+Row count: 16306
+
+
+######### 2009 #########
+
+  1. AGENCY_NAME
+	<type 'unicode'>
+	Nulls: False
+	Unique values: 89
+	5 most frequent values:
+		DISTRICT OF COLUMBIA PUBLIC SCHOOLS:	2834
+		UNIVERSITY OF DISTRICT OF COLUMBIA:	993
+		DEPARTMENT OF HEALTH:	926
+		OFFICE OF THE CHIEF TECHNOLOGY OFFICER:	812
+		STATE SUPERINTENDENT OF EDUCATION (OSSE):	789
+	Max length: 40
+  2. SUPPLIER
+	<type 'unicode'>
+	Nulls: True
+	Unique values: 5095
+	5 most frequent values:
+		AMERICAN EXPRESS COMPANY:	414
+		OST INC:	319
+		DELL COMPUTER CORP:	295
+		MVS INC:	294
+		MDM OFFICE SYSTEMS DBA:	180
+	Max length: 30
+
+Row count: 17327
+
+
+######### 2008 #########
+
+  1. AGENCY_NAME
+	<type 'unicode'>
+	Nulls: False
+	Unique values: 89
+	5 most frequent values:
+		DISTRICT OF COLUMBIA PUBLIC SCHOOLS:	2549
+		DEPARTMENT OF HEALTH:	1108
+		UNIVERSITY OF THE DISTRICT OF COLUMBIA:	998
+		OFFICE OF CHIEF TECHNOLOGY OFFICER:	914
+		DEPARTMENT OF TRANSPORTATION:	832
+	Max length: 40
+  2. SUPPLIER
+	<type 'unicode'>
+	Nulls: False
+	Unique values: 5171
+	5 most frequent values:
+		MVS INC:	448
+		CAPITAL SERVICES AND SUPPLIES:	223
+		US BANK GOVERNMENT SERVICES:	211
+		AMERICAN EXPRESS COMPANY:	198
+		MDM OFFICE SYSTEMS DBA:	158
+	Max length: 30
+
+Row count: 18561
+
+
+####### 2004-2007 ######
+
+  1. AGENCY_NAME
+	<type 'unicode'>
+	Nulls: False
+	Unique values: 88
+	5 most frequent values:
+		DISTRICT OF COLUMBIA PUBLIC SCHOOLS:	7081
+		OFFICE OF CHIEF TECHNOLOGY OFFICER:	5899
+		DEPARTMENT OF HEALTH:	4489
+		DEPARTMENT OF TRANSPORTATION:	3581
+		UNIVERSITY OF THE DISTRICT OF COLUMBIA:	3419
+	Max length: 40
+  2. SUPPLIER
+	<type 'unicode'>
+	Nulls: False
+	Unique values: 9099
+	5 most frequent values:
+		MDM OFFICE SYSTEMS DBA:	1200
+		CAPITAL SERVICES AND SUPPLIES:	1005
+		MVS INC:	907
+		COMPUTER WORLD SERVICES CORP:	870
+		DELL COMPUTER CORP:	676
+	Max length: 30
+
+Row count: 61171
+
+######################
