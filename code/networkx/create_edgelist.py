@@ -1,5 +1,8 @@
 #!/usr/bin/env python
-# encoding: utf-8
+'''
+Example to run the file from the commandline.
+python create_edgelist.py ../../data/original/pass_2011_CSV.csv NIGP_DESCRIPTION AGENCY_NAME output/nigp_connected_on_agency/data/n_a_2011.csv
+'''
 
 import csv
 import networkx as nx
@@ -72,9 +75,12 @@ def create_edgelist(csv_file, node, edge, edge_file=None):
 
     for f in node_edgelist:
         for t in node_edgelist:
+            # Make sure we are equal to ourself
             if t != f:
-                if f[1] == t[1]:
-                    add_edge_or_weight(G, f[0], t[0])
+                # Make sure we don't connect to our own node
+                if f[0] != t[0]:
+                    if f[1] == t[1]:
+                        add_edge_or_weight(G, f[0], t[0])
 
     # Write edges out to a file or return as a Graph.
     if edge_file:
@@ -85,9 +91,7 @@ def create_edgelist(csv_file, node, edge, edge_file=None):
     else:
         return G
 
-
-if __name__ == "__main__":
-
+def main():
     # Establish out file
     try:
         outfile = sys.argv[4]
@@ -95,3 +99,6 @@ if __name__ == "__main__":
         outfile = 'edgelist.csv'
 
     create_edgelist(sys.argv[1], sys.argv[2], sys.argv[3], outfile)
+
+if __name__ == "__main__":
+    main ()
